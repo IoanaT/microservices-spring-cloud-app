@@ -1,0 +1,3 @@
+[submodule "microservices-spring-cloud-discovery-service"]
+	path = microservices-spring-cloud-discovery-service
+	url = git@github.com:IoanaT/microservices-spring-cloud-discovery-service.git
