@@ -1,4 +1,4 @@
-package com.microservices.spring.cloud.app.ws;
+package com.microservices.spring.cloud.users.ws;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

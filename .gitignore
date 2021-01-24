@@ -24,7 +24,7 @@ hs_err_pid*
 
 # IDEA index file
 *.iml
-*.idea
+.idea
 
 # mac OS files
 .DS_Store
