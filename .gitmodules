@@ -1,3 +1,6 @@
 [submodule "microservices-spring-cloud-discovery-service"]
 	path = microservices-spring-cloud-discovery-service
 	url = git@github.com:IoanaT/microservices-spring-cloud-discovery-service.git
+[submodule "spring-cloud-api-gateway"]
+	path = spring-cloud-api-gateway
+	url = git@github.com:IoanaT/spring-cloud-api-gateway.git
