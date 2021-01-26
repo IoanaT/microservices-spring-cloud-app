@@ -1,4 +1,4 @@
-package com.appsdeveloperblog.app.ws.ui.model.response;
+package com.microservices.spring.cloud.users.ws.ui.model.response;
 
 public class UserRest {
 	private String firstName;

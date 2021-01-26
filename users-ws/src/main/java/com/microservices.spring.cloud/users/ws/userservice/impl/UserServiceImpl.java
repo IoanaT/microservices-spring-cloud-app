@@ -1,15 +1,15 @@
-package com.microservices.spring.cloud.app.ws.userservice.impl;
+package com.microservices.spring.cloud.users.ws.userservice.impl;
 
 import java.util.HashMap;
 import java.util.Map;
 
-import com.microservices.spring.cloud.app.ws.ui.model.request.UserDetailsRequestModel;
-import com.microservices.spring.cloud.app.ws.userservice.UserService;
+import com.microservices.spring.cloud.users.ws.shared.Utils;
+import com.microservices.spring.cloud.users.ws.ui.model.request.UserDetailsRequestModel;
+import com.microservices.spring.cloud.users.ws.ui.model.response.UserRest;
+import com.microservices.spring.cloud.users.ws.userservice.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.microservices.spring.cloud.app.ws.shared.Utils;
-import com.appsdeveloperblog.app.ws.ui.model.response.UserRest;
 
 @Service
 public class UserServiceImpl implements UserService {

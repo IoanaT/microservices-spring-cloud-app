@@ -1,4 +1,4 @@
-package com.microservices.spring.cloud.app.ws.shared;
+package com.microservices.spring.cloud.users.ws.shared;
 
 import java.util.UUID;
 

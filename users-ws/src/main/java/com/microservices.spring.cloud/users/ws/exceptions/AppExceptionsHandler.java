@@ -1,8 +1,8 @@
-package com.microservices.spring.cloud.app.ws;
+package com.microservices.spring.cloud.users.ws.exceptions;
 
 import java.util.Date;
 
-import com.microservices.spring.cloud.app.ws.exceptions.UserServiceException;
+import com.microservices.spring.cloud.users.ws.ui.model.response.ErrorMessage;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
-
-import com.appsdeveloperblog.app.ws.ui.model.response.ErrorMessage;
 
 @ControllerAdvice
 public class AppExceptionsHandler extends ResponseEntityExceptionHandler {

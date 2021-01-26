@@ -4,9 +4,10 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
-import com.microservices.spring.cloud.app.ws.ui.model.request.UpdateUserDetailsRequestModel;
-import com.microservices.spring.cloud.app.ws.ui.model.request.UserDetailsRequestModel;
-import com.microservices.spring.cloud.app.ws.userservice.UserService;
+import com.microservices.spring.cloud.users.ws.ui.model.request.UpdateUserDetailsRequestModel;
+import com.microservices.spring.cloud.users.ws.ui.model.request.UserDetailsRequestModel;
+import com.microservices.spring.cloud.users.ws.ui.model.response.UserRest;
+import com.microservices.spring.cloud.users.ws.userservice.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -20,8 +21,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
-
-import com.appsdeveloperblog.app.ws.ui.model.response.UserRest;
 
 @RestController
 @RequestMapping("/users")

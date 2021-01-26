@@ -1,4 +1,4 @@
-package com.microservices.spring.cloud.app.ws.exceptions;
+package com.microservices.spring.cloud.users.ws.exceptions;
 
 public class UserServiceException extends RuntimeException {
 	

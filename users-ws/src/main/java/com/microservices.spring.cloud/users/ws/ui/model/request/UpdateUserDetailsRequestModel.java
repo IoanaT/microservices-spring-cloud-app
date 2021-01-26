@@ -1,4 +1,4 @@
-package com.microservices.spring.cloud.app.ws.ui.model.request;
+package com.microservices.spring.cloud.users.ws.ui.model.request;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;

@@ -1,7 +1,7 @@
-package com.microservices.spring.cloud.app.ws.userservice;
+package com.microservices.spring.cloud.users.ws.userservice;
 
-import com.appsdeveloperblog.app.ws.ui.model.response.UserRest;
-import com.microservices.spring.cloud.app.ws.ui.model.request.UserDetailsRequestModel;
+import com.microservices.spring.cloud.users.ws.ui.model.request.UserDetailsRequestModel;
+import com.microservices.spring.cloud.users.ws.ui.model.response.UserRest;
 
 public interface UserService {
 	UserRest createUser(UserDetailsRequestModel userDetails);
