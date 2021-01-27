@@ -9,6 +9,7 @@ import com.microservices.spring.cloud.users.ws.ui.model.request.UserDetailsReque
 import com.microservices.spring.cloud.users.ws.ui.model.response.UserRest;
 import com.microservices.spring.cloud.users.ws.userservice.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
@@ -29,7 +30,10 @@ public class UserController {
     Map<String, UserRest> users;
 
     @Autowired
-    UserService userService;
+    private UserService userService;
+
+    @Autowired
+    private Environment env;
 
     @GetMapping
     public String getUsers(@RequestParam(value = "page", defaultValue = "1") int page,
@@ -93,6 +97,6 @@ public class UserController {
 
     @GetMapping(path = "/status/check")
     public String getStatus() {
-		return "Working...";
+		return "Working on local port " + env.getProperty("local.server.port");
     }
 }
