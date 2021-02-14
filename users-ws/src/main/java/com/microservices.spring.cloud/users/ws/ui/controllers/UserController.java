@@ -73,8 +73,10 @@ public class UserController {
         modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
         UserDTO userDTO = modelMapper.map(userDetails, UserDTO.class);
 
-        UserRest returnValue = userService.createUser(userDTO);
-        return new ResponseEntity<UserRest>(returnValue, HttpStatus.OK);
+        UserDTO createdUser = userService.createUser(userDTO);
+        UserRest response = modelMapper.map(createdUser, UserRest.class);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @PutMapping(path = "/{userId}", consumes = {

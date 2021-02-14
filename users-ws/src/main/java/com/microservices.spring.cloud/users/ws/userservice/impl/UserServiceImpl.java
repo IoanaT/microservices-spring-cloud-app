@@ -52,7 +52,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public UserRest createUser(UserDTO userDTO) {
+	public UserDTO createUser(UserDTO userDTO) {
 
 		userDTO.setUserId(utils.generateUserId());
 		ModelMapper modelMapper = new ModelMapper();
@@ -62,7 +62,9 @@ public class UserServiceImpl implements UserService {
 		userEntity.setEncryptedPassword("Test");
 		userRepository.save(userEntity);
 
-		return null;
+		UserDTO returnValue = modelMapper.map(userEntity, UserDTO.class);
+
+		return returnValue;
 	}
 
 }

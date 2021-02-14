@@ -6,5 +6,5 @@ import com.microservices.spring.cloud.users.ws.ui.model.response.UserRest;
 
 public interface UserService {
 	UserRest createUser(UserDetailsRequestModel userDetails);
-	UserRest createUser(UserDTO userDTO);
+	UserDTO createUser(UserDTO userDTO);
 }
