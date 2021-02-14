@@ -3,6 +3,7 @@ package com.microservices.spring.cloud.users.ws.userservice.impl;
 import java.util.HashMap;
 import java.util.Map;
 
+import com.microservices.spring.cloud.users.ws.shared.UserDTO;
 import com.microservices.spring.cloud.users.ws.shared.Utils;
 import com.microservices.spring.cloud.users.ws.ui.model.request.UserDetailsRequestModel;
 import com.microservices.spring.cloud.users.ws.ui.model.response.UserRest;
@@ -41,6 +42,22 @@ public class UserServiceImpl implements UserService {
 		
 		return returnValue;
 		
+	}
+
+	@Override
+	public UserRest createUser(UserDTO userDTO) {
+		UserRest returnValue = new UserRest();
+		returnValue.setEmail(userDTO.getEmail());
+		returnValue.setFirstName(userDTO.getFirstName());
+		returnValue.setLastName(userDTO.getLastName());
+
+		String userId = utils.generateUserId();
+		returnValue.setUserId(userId);
+
+		if(users == null) users = new HashMap<>();
+		users.put(userId, returnValue);
+
+		return returnValue;
 	}
 
 }
