@@ -4,10 +4,13 @@ import java.util.Map;
 
 import javax.validation.Valid;
 
+import com.microservices.spring.cloud.users.ws.shared.UserDTO;
 import com.microservices.spring.cloud.users.ws.ui.model.request.UpdateUserDetailsRequestModel;
 import com.microservices.spring.cloud.users.ws.ui.model.request.UserDetailsRequestModel;
 import com.microservices.spring.cloud.users.ws.ui.model.response.UserRest;
 import com.microservices.spring.cloud.users.ws.userservice.UserService;
+import org.modelmapper.ModelMapper;
+import org.modelmapper.convention.MatchingStrategies;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
@@ -66,7 +69,11 @@ public class UserController {
             })
     public ResponseEntity<UserRest> createUser(@Valid @RequestBody UserDetailsRequestModel userDetails) {
 
-        UserRest returnValue = userService.createUser(userDetails);
+        ModelMapper modelMapper = new ModelMapper();
+        modelMapper.getConfiguration().setMatchingStrategy(MatchingStrategies.STRICT);
+        UserDTO userDTO = modelMapper.map(userDetails, UserDTO.class);
+
+        UserRest returnValue = userService.createUser(userDTO);
         return new ResponseEntity<UserRest>(returnValue, HttpStatus.OK);
     }
 
