@@ -42,8 +42,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     }
 
     private Filter getAuthenticationFilter() throws Exception {
-        AuthenticationFilter authenticationFilter = new AuthenticationFilter();
-        authenticationFilter.setAuthenticationManager(authenticationManager());
+        AuthenticationFilter authenticationFilter = new AuthenticationFilter(environment, userService, authenticationManager());
         return authenticationFilter;
     }
 
