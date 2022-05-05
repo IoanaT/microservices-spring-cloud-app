@@ -38,6 +38,12 @@ public class UserController {
     @Autowired
     private Environment env;
 
+    @GetMapping(path = "/status/check")
+    public String getStatus() {
+        return "Working on local port " + env.getProperty("local.server.port") + ", with token: " +
+                env.getProperty("token.secret");
+    }
+
     @GetMapping
     public String getUsers(@RequestParam(value = "page", defaultValue = "1") int page,
                            @RequestParam(value = "limit", defaultValue = "50") int limit,
@@ -102,10 +108,5 @@ public class UserController {
         users.remove(id);
 
         return ResponseEntity.noContent().build();
-    }
-
-    @GetMapping(path = "/status/check")
-    public String getStatus() {
-		return "Working on local port " + env.getProperty("local.server.port");
     }
 }
