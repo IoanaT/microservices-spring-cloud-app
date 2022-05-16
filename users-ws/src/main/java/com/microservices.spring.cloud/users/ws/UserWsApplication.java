@@ -1,5 +1,7 @@
 package com.microservices.spring.cloud.users.ws;
 
+import com.microservices.spring.cloud.users.ws.shared.FeignErrorDecoder;
+import feign.Logger;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -28,4 +30,10 @@ public class UserWsApplication {
     public RestTemplate getRestTemplate() {
         return new RestTemplate();
     }
+
+    @Bean
+    public Logger.Level getLoggerLevel(){
+        return Logger.Level.FULL;
+    }
+
 }
