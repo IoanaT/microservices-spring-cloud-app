@@ -7,6 +7,7 @@ import javax.validation.Valid;
 import com.microservices.spring.cloud.users.ws.shared.UserDTO;
 import com.microservices.spring.cloud.users.ws.ui.model.request.UpdateUserDetailsRequestModel;
 import com.microservices.spring.cloud.users.ws.ui.model.request.UserDetailsRequestModel;
+import com.microservices.spring.cloud.users.ws.ui.model.response.UserResponseModel;
 import com.microservices.spring.cloud.users.ws.ui.model.response.UserRest;
 import com.microservices.spring.cloud.users.ws.userservice.UserService;
 import org.modelmapper.ModelMapper;
@@ -51,18 +52,7 @@ public class UserController {
         return "get users was called with page = " + page + " and limit = " + limit + " and sort = " + sort;
     }
 
-    @GetMapping(path = "/{userId}",
-            produces = {
-                    MediaType.APPLICATION_XML_VALUE,
-                    MediaType.APPLICATION_JSON_VALUE
-            })
-    public ResponseEntity<UserRest> getUser(@PathVariable String userId) {
-        if (users.containsKey(userId)) {
-            return new ResponseEntity<>(users.get(userId), HttpStatus.OK);
-        } else {
-            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
-        }
-    }
+
 
     @PostMapping(
             consumes = {
@@ -83,6 +73,15 @@ public class UserController {
         UserRest response = modelMapper.map(createdUser, UserRest.class);
 
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
+    }
+
+    @GetMapping(value="/{userId}", produces = { MediaType.APPLICATION_XML_VALUE, MediaType.APPLICATION_JSON_VALUE })
+    public ResponseEntity<UserResponseModel> getUser(@PathVariable("userId") String userId) {
+
+        UserDTO userDto = userService.getUserByUserId(userId);
+        UserResponseModel returnValue = new ModelMapper().map(userDto, UserResponseModel.class);
+
+        return ResponseEntity.status(HttpStatus.OK).body(returnValue);
     }
 
     @PutMapping(path = "/{userId}", consumes = {
@@ -109,4 +108,6 @@ public class UserController {
 
         return ResponseEntity.noContent().build();
     }
+
+
 }

@@ -9,4 +9,6 @@ public interface UserService extends UserDetailsService {
 	UserRest createUser(UserDetailsRequestModel userDetails);
 	UserDTO createUser(UserDTO userDTO);
 	UserDTO getUserDetailsByEmail(String email);
+
+    UserDTO getUserByUserId(String userId);
 }

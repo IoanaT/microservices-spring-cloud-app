@@ -30,14 +30,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
-        http.authorizeRequests().antMatchers("/users/**")
-                .hasIpAddress(environment.getProperty("gateway.ip"))
+        http.authorizeRequests().antMatchers("/**").hasIpAddress(environment.getProperty("gateway.ip"))
                 .and()
                 .addFilter(getAuthenticationFilter());
-        //for h2-console to work with spring security ->> disable the frame-options header
-        //The X-Frame-Options HTTP response header can be used to indicate whether or not a browser should be allowed to render a page in a <frame> , <iframe> , <embed> or <object> .
-        // Sites can use this to avoid click-jacking attacks,
-        // by ensuring that their content is not embedded into other sites.
         http.headers().frameOptions().disable();
     }
 
